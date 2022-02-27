@@ -3,6 +3,9 @@
   <head>
     <!-- CSS E FONTES -->
     <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="assets/fonts/style.css" />
+    <link rel="stylesheet" href="assets/icons/style.css" />
+
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -19,7 +22,17 @@
     <header id="header">
       <nav class="container">
         <a class="logo" href="#">Del<span>Natur</span></a>
-        <div class="menu">...</div>
+        <div class="menu">
+          <ul class="grid">
+            <li><a class="title" href="#home">Início</a></li>
+            <li><a class="title" href="#about">Sobre</a></li>
+            <li><a class="title" href="#services">Serviços</a></li>
+            <li><a class="title" href="#testimonials">Depoimentos</a></li>
+            <li><a class="title" href="#contact">Contato</a></li>
+          </ul>
+        </div>
+        <div class="toggle icon-menu"></div>
+        <div class="toggle icon-close"></div>
       </nav>
     </header>
     <main>
@@ -27,12 +40,12 @@
         <div class="container grid">
           <div class="image">
             <img
-              src="https://images.unsplash.com/photo-1580618672591-eb180b1a973f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1169&q=80"
+              src="https://images.unsplash.com/photo-1574586595103-6775e147e412?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1025&q=80"
               alt="imagem 1"
             />
           </div>
           <div class="text">
-            <h1>Produtos naturais e de qualidade!</h1>
+            <h2 class="title">Produtos naturais e de qualidade!</h2>
             <p>
               Somos uma loja de grãos e produtos naturais exclusiva na cidade do
               Recife, venha conferir!
@@ -42,10 +55,106 @@
         </div>
       </section>
       <div class="divider-1"></div>
-      <section class="section">
-        <div class="container">next</div>
+      <section class="section" id="about">
+        <div class="container grid">
+          <div class="image">
+            <img
+              src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80"
+              alt="imagem 2"
+            />
+          </div>
+          <div class="text">
+            <h2 class="title">Sobre nós</h2>
+            <p>
+              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Soluta
+              esse aliquam ipsam incidunt, harum obcaecati odit iure voluptas
+              fugiat, voluptatibus alias temporibus inventore cupiditate quos
+              explicabo atque illo pariatur repellendus.
+            </p>
+            <br />
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt,
+              dolore ut rerum perspiciatis mollitia animi sit corrupti beatae
+              natus maiores libero facere! Distinctio, beatae. Debitis neque
+              perferendis alias numquam modi.
+            </p>
+            <br />
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Non sunt
+              iure earum aspernatur? Fuga voluptatum ullam eligendi sint beatae
+              eveniet id minus itaque eaque ab perferendis obcaecati sed,
+              praesentium modi?
+            </p>
+          </div>
+        </div>
       </section>
+      <div class="divider-2"></div>
+      <section class="section" id="services">
+        <div class="container grid">
+          <header>
+            <h2 class="title">Serviços</h2>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis
+            odit eum voluptate ab veniam incidunt dolores rerum, alias obcaecati
+            possimus, quos et totam recusandae maxime laborum pariatur
+            excepturi, ipsam voluptatem?
+          </header>
+          <div class="cards grid">
+            <div class="card">
+              <i class="icon-trigo"></i>
+              <h3 class="title">Grãos</h3>
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Non
+                sunt iure earum aspernatur? Fuga voluptatum ullam eligendi sint
+                beatae eveniet id minus itaque eaque ab perferendis obcaecati
+                sed, praesentium modi?
+              </p>
+            </div>
+            <div class="card">
+              <i class="icon-tumpero"></i>
+              <h3 class="title">Temperos</h3>
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Non
+                sunt iure earum aspernatur? Fuga voluptatum ullam eligendi sint
+                beatae eveniet id minus itaque eaque ab perferendis obcaecati
+                sed, praesentium modi?
+              </p>
+            </div>
+            <div class="card">
+              <i class="icon-pao"></i>
+              <h3 class="title">Pães integrais</h3>
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Non
+                sunt iure earum aspernatur? Fuga voluptatum ullam eligendi sint
+                beatae eveniet id minus itaque eaque ab perferendis obcaecati
+                sed, praesentium modi?
+              </p>
+            </div>
+            <div class="card">
+              <i class="icon-cha"></i>
+              <h3 class="title">Chás</h3>
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Non
+                sunt iure earum aspernatur? Fuga voluptatum ullam eligendi sint
+                beatae eveniet id minus itaque eaque ab perferendis obcaecati
+                sed, praesentium modi?
+              </p>
+            </div>
+            <div class="card">
+              <i class="icon-sopa"></i>
+              <h3 class="title">Sopas</h3>
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Non
+                sunt iure earum aspernatur? Fuga voluptatum ullam eligendi sint
+                beatae eveniet id minus itaque eaque ab perferendis obcaecati
+                sed, praesentium modi?
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+      <div class="divider-1"></div>
     </main>
     <footer></footer>
+    <script src="main.js"></script>
   </body>
 </html>
