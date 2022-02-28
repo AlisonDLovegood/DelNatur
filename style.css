@@ -324,6 +324,19 @@ nav.show div.icon-close {
 /* TESTIMONIALS */
 #testimonials {
   background: white;
+  /* display: block; */
+}
+/* tirando a margem do titulo para o card que foi criada la em cima no header para o padding de 4rem que foi dado abaixo que é necessário para manter a sombra funcionar e não ficar com um espaço muito grande*/
+#testimonials header {
+  margin-bottom: 0;
+  /* para o titulo voltar a ficar identado com o restante da pagina*/
+  margin-left: 1.5rem;
+  margin-right: 1.5rem;
+}
+/* para o card ficar identado com o resto dos espaços da página*/
+#testimonials .container {
+  margin-left: 0;
+  margin-right: 0;
 }
 #testimonials blockquote {
   padding: 2rem;
@@ -360,7 +373,47 @@ nav.show div.icon-close {
   clip-path: circle();
   margin-right: 1rem;
 }
-.swiper {
-  width: 600px;
-  height: 300px;
+
+/* SWIPERS */
+/* .swiper {
+  width: 37.5rem;
+  height: 18.75rem;
+} */
+.swiper-slide {
+  height: auto;
+  padding: 4rem 1rem;
+}
+.swiper-pagination-bullet {
+  height: 0.5rem;
+  width: 0.5rem;
+}
+.swiper-pagination-bullet-active {
+  background: var(--base-color);
+}
+
+/* CONTACT */
+#contact .grid {
+  gap: 4rem;
+}
+#contact .text p {
+  margin-bottom: 2rem;
+}
+#contact .button i {
+  font-size: 1.5rem;
+  margin-right: 0.625rem;
+}
+#contact .button {
+  border-radius: 0.2rem;
+}
+#contact ul.grid {
+  gap: 2rem;
+}
+#contact ul li i {
+  font-size: 1.5rem;
+  margin-right: 0.625rem;
+  color: var(--base-color);
+}
+#contact ul li {
+  display: flex;
+  align-items: center;
 }
