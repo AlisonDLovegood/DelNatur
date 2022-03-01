@@ -1,10 +1,10 @@
 @font-face {
   font-family: 'icomoon';
-  src:  url('fonts/icomoon.eot?f4ofkj');
-  src:  url('fonts/icomoon.eot?f4ofkj#iefix') format('embedded-opentype'),
-    url('fonts/icomoon.ttf?f4ofkj') format('truetype'),
-    url('fonts/icomoon.woff?f4ofkj') format('woff'),
-    url('fonts/icomoon.svg?f4ofkj#icomoon') format('svg');
+  src:  url('fonts/icomoon.eot?i4utob');
+  src:  url('fonts/icomoon.eot?i4utob#iefix') format('embedded-opentype'),
+    url('fonts/icomoon.ttf?i4utob') format('truetype'),
+    url('fonts/icomoon.woff?i4utob') format('woff'),
+    url('fonts/icomoon.svg?i4utob#icomoon') format('svg');
   font-weight: normal;
   font-style: normal;
   font-display: block;
@@ -25,11 +25,23 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-.icon-tree:before {
+.icon-up:before {
+  content: "\e901";
+}
+.icon-cha:before {
   content: "\e900";
 }
-.icon-images:before {
-  content: "\e90e";
+.icon-pao:before {
+  content: "\e90d";
+}
+.icon-sopa:before {
+  content: "\e902";
+}
+.icon-trigo:before {
+  content: "\e903";
+}
+.icon-tumpero:before {
+  content: "\e904";
 }
 .icon-phone:before {
   content: "\e942";
@@ -37,14 +49,11 @@
 .icon-envelop:before {
   content: "\e945";
 }
-.icon-location:before {
-  content: "\e947";
-}
 .icon-location2:before {
   content: "\e948";
 }
-.icon-leaf:before {
-  content: "\e9a4";
+.icon-magic-wand:before {
+  content: "\e997";
 }
 .icon-menu:before {
   content: "\e9bd";

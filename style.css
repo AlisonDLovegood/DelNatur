@@ -29,6 +29,9 @@ img {
   --text-color: hsl(0 0% 46%);
   --text-color-light: hsl(0 0% 98%);
   --body-color: hsl(0 0% 98%);
+
+  /* fonts*/
+  --title-font-size: 1.85rem;
 }
 
 /* BASE */
@@ -42,7 +45,7 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 .title {
-  font: 700 1.875rem 'Poppins', sans-serif;
+  font: 700 var(--title-font-size) 'Poppins', sans-serif;
   color: var(--title-color);
   -webkit-font-smoothing: antialiased;
 }
@@ -220,6 +223,9 @@ nav.show div.icon-close {
 }
 .logo span {
   color: var(--base-color);
+}
+.logo-alt span {
+  color: white;
 }
 
 /* HOME */
@@ -406,6 +412,7 @@ nav.show div.icon-close {
   border-radius: 0.2rem;
 }
 #contact ul.grid {
+  /* o gap da um espaço entre os elementos */
   gap: 2rem;
 }
 #contact ul li i {
@@ -417,3 +424,82 @@ nav.show div.icon-close {
   display: flex;
   align-items: center;
 }
+
+/* FOOTER */
+footer {
+  background: var(--base-color);
+  color: var(--text-color-light);
+}
+/* a logo é um A e o display dele automatico pelo browser é inline, nele nao há opção de por margem bottom */
+footer .logo {
+  display: inline-block;
+  margin-bottom: 1.5rem;
+}
+footer .brand p {
+  margin-bottom: 0.5rem;
+}
+footer.section {
+  padding: 2rem 0;
+}
+/* quando quiser colocar icones no footes p links 
+footer i {
+  font-size: 1.5rem;
+  color: tex-color-light
+}
+footer .social {
+  aqui ele espalha na linha os elementos em suas colunas, mesmo que haja o gap ele tenta ser sistematico na simetria isso caso o social esteja com grid nas suas classes
+  grid-auto-flow: column;
+}
+  caso nao tenha o grid basta fazer
+footer .social a {
+  margin-right: 2rem;
+  aqui para os icones crescerem
+  transition: 0.3s;
+  display: inline-block;
+}
+OU AINDA
+footer .social {
+  o display flexz joga tudo um ao lado do outro, por mais que ja estejam
+  display: flex;
+  o gap vai dar o espaço entre os itens
+  gap: 2rem;
+  AGORA PARA COLOCAR OS ICONES P AUMENTAREM
+  footer .social a:over{
+    transform: translateY(-15px);
+*/
+
+/* ARROW UP  BACK TO TOP*/
+.back-to-top {
+  background: var(--base-color);
+  position: fixed;
+  color: var(--text-color-light);
+  right: 1rem;
+  bottom: 1rem;
+  padding: 0.4rem;
+  clip-path: circle();
+  font-size: 1.3rem;
+
+  /* fazer ele sumir para depois aparecer quando a barra descer */
+  visibility: hidden;
+  opacity: 0;
+  transition: 0.5s;
+  /* transform é uma propriedade que aceita que muitas outras propriedades sejam ativas*/
+  transform: translateY(100%);
+}
+.back-to-top.show {
+  visibility: visible;
+  opacity: 1;
+  transform: translateY(0%);
+}
+
+/* RESPONSIVIDADE MEDIA QUERIES*/
+/* tudo que recebe @ é uma atrule  */
+/* extra largue devices: 1200 > */
+/* large devices: 1023 > */
+/* large devices: 992 > */
+@media (min-width: 992px) {
+  :root {
+    --title-font-size: 2.25rem;
+  }
+}
+/* medium devices: 767 > // tablets, dispositivos menores que isso ja estao realizados*/

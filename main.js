@@ -22,11 +22,11 @@ for (const link of links) {
   })
 }
 
-//sombra da do menu superior quando estiver em rolamento
+//sombra da barra do menu superior quando estiver em rolamento
 const header = document.querySelector('#header')
 //pegando o deslocamento da altura do objeto
 const navHeight = header.offsetHeight
-window.addEventListener('scroll', function () {
+function changeHeaderWhenScroll() {
   //se o scroll do eixo y passou da altura do header
   if (window.scrollY >= navHeight) {
     header.classList.add('scroll')
@@ -34,7 +34,7 @@ window.addEventListener('scroll', function () {
     //menor que a altura do header
     header.classList.remove('scroll')
   }
-})
+}
 
 // TESTIMONIAL CAROUSEL SWIPER
 const swiper = new Swiper('.swiper', {
@@ -60,7 +60,23 @@ scrollReveal.reveal(
   #about .image, #about .text,
   #services .header, #services .card,
   #testimonials header, #testimonials .testimonials,
-  #contact .text, #contact .links
+  #contact .text, #contact .links,
+  footer .brand
   `,
   { interval: 100 }
 )
+
+// BACK TO TOP BUTTON
+const backToTopButton = document.querySelector('.back-to-top')
+function backToTop() {
+  if (window.scrollY >= 696) {
+    backToTopButton.classList.add('show')
+  } else {
+    backToTopButton.classList.remove('show')
+  }
+}
+//when scroll chama as duas funções dependentes dele
+window.addEventListener('scroll', function () {
+  changeHeaderWhenScroll()
+  backToTop()
+})
