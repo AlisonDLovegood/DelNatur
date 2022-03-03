@@ -32,6 +32,9 @@ img {
 
   /* fonts*/
   --title-font-size: 1.85rem;
+  --subtitle-font-size: 1rem;
+  --title-font: 'Poppins', sans-serif;
+  --body-font: 'Dm Sans', sans-serif;
 }
 
 /* BASE */
@@ -39,13 +42,13 @@ html {
   scroll-behavior: smooth;
 }
 body {
-  font: 400 1rem 'DM sans', sans-serif;
+  font: 400 1rem var(--body-font);
   background-color: (var(--body-color));
   color: var(--text-color);
   -webkit-font-smoothing: antialiased;
 }
 .title {
-  font: 700 var(--title-font-size) 'Poppins', sans-serif;
+  font: 700 var(--title-font-size) var(--title-font);
   color: var(--title-color);
   -webkit-font-smoothing: antialiased;
 }
@@ -57,7 +60,7 @@ body {
   align-items: center;
   padding: 0 2rem;
   border-radius: 0.5rem;
-  font: 500 1rem 'DM sans', sans-serif;
+  font: 500 1rem var(--body-font);
   transition: background 0.5s;
 }
 /* propriedade de passar o mouse */
@@ -88,10 +91,15 @@ body {
   margin-right: 1.5rem;
 }
 .section {
-  padding: 5rem 0;
+  /* padding: 5rem 0;  <- codigo antigo */
+  /*como o main com o espaçamento da nav foi retirado daqui para a questão de responsividade, com esse calculo, ao clicar nos botoes da nav as sessoes sao abertas inteiras, sem contar sua parte superior*/
+  padding: calc(5rem + var(--header-height)) 0;
 }
 .section .title {
   margin-bottom: 1rem;
+}
+.section .subtitle {
+  font-size: var(--subtitle-font-size);
 }
 .section header {
   margin-bottom: 4rem;
@@ -121,10 +129,6 @@ body {
 #header.scroll .logo span {
   color: var(--base-color-alt);
 }
-main {
-  /* mesma altura do nav para ficar identico o espaçamento inicial */
-  margin-top: calc(var(--header-height) + 2rem);
-}
 
 /* NAVIGATION */
 nav {
@@ -138,8 +142,11 @@ nav ul li {
   text-align: center;
 }
 /* passar o mouse em cima dos itens do menu */
-nav ul li a:hover {
+nav ul li a:hover,
+nav ul li a.active {
   color: var(--base-color);
+  font-weight: bold;
+  -webkit-font-smoothing: auto;
 }
 /* após o conteudo do A mas só enquanto o mouse estiver em cima */
 /* isso referente a linha abaixo dos itens do menu */
@@ -154,8 +161,11 @@ nav ul li a::after {
   bottom: -1.5rem;
   transition: 0.5s;
 }
+/* active dos itens da nav quando scroll */
 /* isso faz a largura dele crescer ao passar o mouse em cima*/
-nav ul li a:hover::after {
+
+nav ul li a:hover::after,
+nav ul li a.active::after {
   width: 100%;
 }
 nav ul li a {
@@ -218,7 +228,7 @@ nav.show div.icon-close {
 
 /* LOGO */
 .logo {
-  font: 700 1.31rem 'Poppins', sans-serif;
+  font: 700 1.31rem var(--title-font);
   color: var(--title-color);
 }
 .logo span {
@@ -438,6 +448,7 @@ footer .logo {
 footer .brand p {
   margin-bottom: 0.5rem;
 }
+/* para consertar o bug da responsividade, que deixava a div do footes gigante*/
 footer.section {
   padding: 2rem 0;
 }
@@ -449,6 +460,7 @@ footer i {
 footer .social {
   aqui ele espalha na linha os elementos em suas colunas, mesmo que haja o gap ele tenta ser sistematico na simetria isso caso o social esteja com grid nas suas classes
   grid-auto-flow: column;
+  width: fit-content;
 }
   caso nao tenha o grid basta fazer
 footer .social a {
@@ -491,15 +503,159 @@ footer .social {
   opacity: 1;
   transform: translateY(0%);
 }
+/* .wand {
+  background: var(--base-color);
+  position: fixed;
+  color: var(--text-color-light);
+  left: 1rem;
+  bottom: 1rem;
+  padding: 0.4rem;
+  clip-path: circle();
+  font-size: 1.3rem;
+  transition: 0.5s;
+} */
+.wand {
+  color: white;
+  background-image: linear-gradient(
+    90deg,
+    #ff0000 0%,
+    #ffa500 49%,
+    #00ffff 80%,
+    #a020f0 100%
+  );
+  text-transform: uppercase;
+
+  position: fixed;
+  left: 1rem;
+  bottom: 1rem;
+  padding: 0.4rem;
+  clip-path: circle();
+  font-size: 1.3rem;
+}
+.wand:hover {
+  animation: slidebg 16s linear infinite;
+}
+@keyframes slidebg {
+  to {
+    background-position: 20vw;
+  }
+}
 
 /* RESPONSIVIDADE MEDIA QUERIES*/
 /* tudo que recebe @ é uma atrule  */
 /* extra largue devices: 1200 > */
+@media (min-width: 1200px) {
+  .section {
+    padding: 10rem 0;
+  }
+  .container {
+    max-width: 1120px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
 /* large devices: 1023 > */
 /* large devices: 992 > */
 @media (min-width: 992px) {
   :root {
     --title-font-size: 2.25rem;
+    --subtitle-font-size: 1.125rem;
+  }
+  /* CENTRALIZAR OS HEADERS */
+  .section header,
+  #testimonials header {
+    max-width: 32rem;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .button {
+    height: 3.125rem;
+  }
+  /* para fazer a nav ficar centralizada com um tamanho maximo */
+  /* para fazer a nav aparecer e ficar com os icones aparentes */
+  nav .menu {
+    opacity: 1;
+    visibility: visible;
+    top: 0;
+  }
+  nav .menu ul {
+    /* estava com o display none, que esconde o objeto */
+    display: flex;
+    gap: 2rem;
+  }
+  nav .menu ul li a.title {
+    font: 500 1rem var(--title-font);
+    -webkit-font-smoothing: antialiased;
+  }
+  /* fazer o menu clicavel sumir */
+  nav .icon-menu {
+    display: none;
+  }
+  /* layout */
+  main {
+    /* mesma altura do nav para ficar identico o espaçamento inicial */
+    margin-top: var(--header-height);
+  }
+  /* HOME */
+  #home .container {
+    grid-auto-flow: column;
+    /* width: fit-content; */
+    justify-content: space-between;
+    margin: 0 auto;
+    align-items: center;
+  }
+  /* mudando a ordem dos objetos, só é possivel por estar dentro de uma caixa grid */
+  #home .image {
+    order: 1;
+  }
+  #home .text {
+    order: 0;
+    max-width: 24rem;
+    text-align: left;
+  }
+  /* ABOUT */
+  #about .container {
+    grid-auto-flow: column;
+    margin: 0 auto;
+    align-items: center;
+  }
+  /* SERVICES */
+  .cards {
+    /* uma coluna flexivel (fração)  */
+    grid-template-columns: 1fr 1fr;
+  }
+  .card {
+    padding-left: 3rem;
+    padding-right: 3rem;
+  }
+  /* TESTIMONIALS */
+  #testimonials .container {
+    margin-left: auto;
+    margin-right: auto;
+  }
+  /* CONTACT */
+  #contact .container {
+    grid-auto-flow: column;
+    align-items: center;
+  }
+  /* tamanho do container dos textos do contact */
+  #contact .text {
+    max-width: 40rem;
+  }
+  /* FOOTER 
+  n há necessidade agora mas futuramente posso querer colocar mais itens
+  footer.section {
+    padding: 3.75rem 0;
+  }
+  footer .container {
+    grid-auto-flow: column;
+    align-items: center;
+    justfy-content: space-between;
+  }
+  */
+  footer .logo {
+    font-size: 2.25rem;
   }
 }
 /* medium devices: 767 > // tablets, dispositivos menores que isso ja estao realizados*/

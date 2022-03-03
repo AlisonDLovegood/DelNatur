@@ -44,7 +44,14 @@ const swiper = new Swiper('.swiper', {
   },
   mousewheel: true,
   keyboard: true,
-  loop: true
+  loop: true,
+
+  breakpoints: {
+    767: {
+      slidesPerView: 2,
+      setWrapperSize: true
+    }
+  }
 })
 
 // SCROLL REVIEW
@@ -75,8 +82,58 @@ function backToTop() {
     backToTopButton.classList.remove('show')
   }
 }
+
+// ATIVAR MENU CONFORME SESSÃO VISÍVEL
+//pegando todas as sessões que contenham ID em seu nucleo
+const sections = document.querySelectorAll('main section[id]')
+function activateMenuAtCurrentSection() {
+  // pegando da janela o deslocamento do y, pega também todo o tamanho da janela e divide ela toda por 8 e pegando apenas 4 pedacinhos das 8 partes, isso sera somado ao deslocamento do Y
+  const checkpoint = window.pageYOffset + (window.innerHeight / 8) * 4
+  //para cada sessao das sessoes
+  for (const section of sections) {
+    const sectionTop = section.offsetTop
+    const sectionHeight = section.offsetHeight
+    const sectionId = section.getAttribute('id')
+
+    const checkpointStart = checkpoint >= sectionTop
+    //quando o checkpoint for menor ou igual ao topo com a altura
+    const checkpointEnd = checkpoint <= sectionTop + sectionHeight
+
+    if (checkpointStart && checkpointEnd) {
+      //procurando o a que tenha um href especifico
+      document
+        .querySelector('nav ul li a[href*=' + sectionId + ']')
+        .classList.add('active')
+    } else {
+      document
+        .querySelector('nav ul li a[href*=' + sectionId + ']')
+        .classList.remove('active')
+    }
+  }
+}
+
 //when scroll chama as duas funções dependentes dele
 window.addEventListener('scroll', function () {
   changeHeaderWhenScroll()
   backToTop()
+  activateMenuAtCurrentSection()
 })
+
+// MUDANDO O HUE
+//const wand = getComputedStyle(document.documentElement).getPropertyValue(
+//  '--hue'
+//)
+//function randomNumber() {
+//  const random = Math.floor(Math.random() * 260)
+//}
+//randomNumber()
+
+function changeHue() {
+  const random = Math.floor(Math.random() * 261)
+  document.documentElement.style.setProperty('--hue', random)
+}
+
+//const wand = document.querySelector('a .wand')
+//wand.addEventListener('click', function () {
+//  changeHue()
+//})
